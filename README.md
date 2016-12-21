@@ -27,7 +27,7 @@ You will have now one new palette service called "Run CasperJS code":
 
 ### Run CasperJS Code:
 
-This palette service will allow you to choose between choose an already existing phantom or casper js file, or create it with the code editor and execute that code
+This palette service will allow you to choose an already existing phantom or casper js file.
 
 - **Server -** This option let you choose the way to execute the code. It can be from an existing file, or creating the js code in the editor.
 - **Running a test?-** Check this option if you are running a CasperJS test.

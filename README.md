@@ -29,7 +29,7 @@ You will have now one new palette service called "Run CasperJS code":
 
 This palette service will allow you to choose an already existing phantom or casper js file on the server you select, and be able to set arguments for the script or for the CasperJS command.
 
-- **Server -** This option let you choose the way to execute the code. It can be from an existing file, or creating the js code in the editor.
+- **Server -** This option let you choose the server where you want to execute the code. 
 - **Running a test?-** Check this option if you are running a CasperJS test.
 - **File path** - Write the path where the script file is located. It must be the full path to the file.
 - **CasperJS arguments -** Fill this if you want to send arguments to CasperJS. For more than one argument you must separate them by white spaces.

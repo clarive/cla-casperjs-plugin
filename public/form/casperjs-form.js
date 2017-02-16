@@ -3,7 +3,7 @@
     var serverCombo = Cla.ui.ciCombo({
         name: 'server',
         value: params.data.server || '',
-        class: 'BaselinerX::CI::generic_server',
+        class: 'generic_server',
         fieldLabel: _('Select server'),
         allowBlank: false
     });

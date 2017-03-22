@@ -5,7 +5,8 @@
         value: params.data.server || '',
         class: 'generic_server',
         fieldLabel: _('Select server'),
-        allowBlank: false
+        allowBlank: false,
+        with_vars: 1
     });
 
     var testCheckBox = Cla.ui.checkBox({

@@ -16,6 +16,13 @@ reg.register('service.casperjs.script', {
         var expectStart = "expect -c 'set timeout -1' -c 'spawn casperjs " + casperArgs + " " + test + " ";
         var expectEnd = " " + scriptArgs + "' -c 'expect " + '"Error: "' + " {exit 1}'  -c 'lassign [wait] pid spawnid os_error_flag value' -c 'exit $value'";
 
+        var serverCheck = ci.findOne({
+            mid: config.server + ''
+        });
+        if (!serverCheck){
+            log.fatal("Generic server CI doesn't exist");
+        }
+
         var server = ci.load(config.server);
         var agent = server.connect();
         agent.execute(expectStart + filePath + expectEnd);

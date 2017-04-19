@@ -3,7 +3,7 @@
 
 CasperJS plugin will allow you to launch PhantonJS and CasperJS scripts from Clarive's instance.
 
-## Requeriments
+## Requirements
 
 This plugin requires CasperJS and PhantomJS to be installed in the instance to work properly.
 

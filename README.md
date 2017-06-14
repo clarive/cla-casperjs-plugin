@@ -42,3 +42,5 @@ Configuration example:
     File path: /opt/clarive/examples/casperTest.js
     CasperJS arguments: 
     Script arguments: arg1 arg2
+
+The service will return the console output for the command.

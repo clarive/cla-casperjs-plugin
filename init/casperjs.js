@@ -29,8 +29,7 @@ reg.register('service.casperjs.script', {
 
         var response = agent.tuple().output;
         if (agent.tuple().rc) {
-            log.error("Error. ", response);
-            throw new Error("Error. " + response);
+            log.fatal("Error. ", response);
         }
 
         log.info("Script finished. ", response);

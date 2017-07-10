@@ -1,0 +1,35 @@
+#: init/casperjs.js
+msgid "Run CasperJS Code"
+msgstr "Ejecutar código de CasperJS"
+
+#: init/casperjs.js
+msgid "Generic server CI doesn't exist"
+msgstr "El CI de servidor genérico no existe"
+
+#: init/casperjs.js
+msgid "Error. "
+msgstr "Error. "
+
+#: init/casperjs.js
+msgid "Script finished. "
+msgstr "Script finalizado. "
+
+#: public/form/casperjs-form.js
+msgid "Select server"
+msgstr "Select server"
+
+#: public/form/casperjs-form.js
+msgid "Running a test?"
+msgstr "Ejecutando un test?"
+
+#: public/form/casperjs-form.js
+msgid "File path"
+msgstr "Ruta del archivo"
+
+#: public/form/casperjs-form.js
+msgid "CasperJS arguments"
+msgstr "Argumentos de CasperJS"
+
+#: public/form/casperjs-form.js
+msgid "Script arguments"
+msgstr "Argumentos del script"

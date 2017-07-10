@@ -1,7 +1,7 @@
 var reg = require("cla/reg");
 
 reg.register('service.casperjs.script', {
-    name: 'Run CasperJS Code',
+    name: _('Run CasperJS Code'),
     icon: '/plugin/cla-casperjs-plugin/icon/casperjs.svg',
     form: '/plugin/cla-casperjs-plugin/form/casperjs-form.js',
     handler: function(ctx, config) {
@@ -20,7 +20,7 @@ reg.register('service.casperjs.script', {
             mid: config.server + ''
         });
         if (!serverCheck){
-            log.fatal("Generic server CI doesn't exist");
+            log.fatal(_("Generic server CI doesn't exist"));
         }
 
         var server = ci.load(config.server);
@@ -29,9 +29,9 @@ reg.register('service.casperjs.script', {
 
         var response = agent.tuple().output;
         if (agent.tuple().rc) {
-            log.fatal("Error. ", response);
+            log.fatal(_("Error. "), response);
         }
 
-        log.info("Script finished. ", response);
+        log.info(_("Script finished. "), response);
     }
 });

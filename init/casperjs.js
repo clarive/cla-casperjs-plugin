@@ -11,10 +11,10 @@ reg.register('service.casperjs.script', {
 
         var filePath = config.file_path || '';
         var casperArgs = config.casper_args || '';
-        var scriptArgs = config.script_args || '';
+        var scriptArgs = config.script_args;
         var test = (config.is_test) ? "test" : "";
         var expectStart = "expect -c 'set timeout -1' -c 'spawn casperjs " + casperArgs + " " + test + " ";
-        var expectEnd = " " + scriptArgs + "' -c 'expect " + '"Error: "' + " {exit 1}'  -c 'lassign [wait] pid spawnid os_error_flag value' -c 'exit $value'";
+        var expectEnd = " " + scriptArgs.join(" ") + "' -c 'expect " + '"Error: "' + " {exit 1}'  -c 'lassign [wait] pid spawnid os_error_flag value' -c 'exit $value'";
 
         var serverCheck = ci.findOne({
             mid: config.server + ''

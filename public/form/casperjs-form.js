@@ -28,10 +28,12 @@
         value: params.data.casper_args || ''
     });
 
-    var scriptArgsTextField = Cla.ui.textField({
+    var scriptArgsTextField = Cla.ui.arrayGrid({
         name: 'script_args',
         fieldLabel: _('Script arguments'),
-        value: params.data.script_args || ''
+        value: params.data.script_args,
+        description: _('Script arguments'),
+        default_value: '.'
     });
 
     return [

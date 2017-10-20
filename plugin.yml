@@ -1,0 +1,9 @@
+name: Clarive CaperJS Plugin
+description: CasperJS plugin will allow you to launch PhantonJS and CasperJS scripts from Clarive's instance.
+version: 1.0
+icon: https://github.com/clarive/cla-casperjs-plugin/public/icon/casperjs.svg
+url: https://github.com/clarive/cla-casperjs-plugin
+requires:
+  - clarive_version: 6.8 <= version
+dependencies:
+  - cla-casperjs-plugin

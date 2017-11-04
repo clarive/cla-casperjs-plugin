@@ -52,11 +52,11 @@ Op Name: **Run CasperJS Code**
 Example:
 
 ```yaml
-	Server: CasperJS server
-	Running a test?: true
-	File path: /full/path/to/casperTest.js
-	CasperJS arguments: 
-	Script arguments: arg1 arg2
+    Server: CasperJS server
+    Running a test?: true
+    File path: /full/path/to/casperTest.js
+    CasperJS arguments: 
+    Script arguments: arg1 arg2
 ``` 
 
 ### In Clarive SE

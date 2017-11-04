@@ -1,7 +1,8 @@
-
 # CasperJS plugin
 
-CasperJS plugin will allow you to launch PhantomJS and CasperJS scripts from Clarive's instance.
+<img src="https://cdn.rawgit.com/clarive/cla-casperjs-plugin/master/public/icon/casperjs.svg?sanitize=true" alt="CasperJS Plugin" title="CasperJS Plugin" width="120" height="120">
+
+CasperJS plugin will allow you to launch PhantonJS and CasperJS scripts from Clarive's instance.
 
 ## What is CasperJS
 
@@ -19,64 +20,95 @@ Alternatively, use this to load your application with data.
 
 This plugin requires CasperJS and PhantomJS to be installed in the instance to work properly.
 
-To install PhantomJS you need to click [here](http://phantomjs.org/download.html) and follow the instructions.
+To install PhantomJS click [here](http://phantomjs.org/download.html) and follow the instructions.
 
-To install CasperJS you need to click [here](http://docs.casperjs.org/en/latest/installation.html#installing-from-git) and follow the instructions.
+To install CasperJS click [here](http://docs.casperjs.org/en/latest/installation.html#installing-from-git) and follow the instructions.
 
 If you are going to run on a remote server, check the server to have both requeriments mentioned above plus [`Expect`](http://expect.sourceforge.net/) installed
 
 ## Installing
 
-To install the plugin place the cla-casperjs-plugin folder inside `CLARIVE_BASE/plugins`
+To install the plugin place the cla-casperjs-plugin folder inside `$CLARIVE_BASE/plugins`
 directory in Clarive's instance.
-
-## Using CasperJS
-
-Once the plugin is placed in its folder and Clarive is restarted, you can start using it going to your Clarive's
-instance.
-
-You will have now one new rule palette service called "Run CasperJS code":
 
 ### Run CasperJS Code
 
-This palette service will allow you to choose an already existing phantom or casper js file on the server you select, and be able to set arguments for the script or for the CasperJS command.
+The various parameters are:
 
-- **Server**- This option let you choose the server where you want to execute the code. 
-- **Running a test?**- Check this option if you are running a CasperJS test.
-- **File path**- Write the path where the script file is located. It must be the full path to the file.
-- **CasperJS arguments**- Fill this if you want to send arguments to CasperJS. For more than one argument you must separate them by white spaces.
-- **Script arguments**- Fill this if you want to send arguments to the script. For more than one argument you must separate them by white spaces.
+- **Server (variable name: server)**- This option let you choose the server where you want to execute the code. 
+- **Running a test? (is_test)**- Check this option if you are running a CasperJS test.
+- **File path (file_path)**- Write the path where the script file is located. It must be the full path to the file.
+- **CasperJS arguments (casper_args)**- Fill this if you want to send arguments to CasperJS. For more than one argument you must separate them by white spaces.
+- **Script arguments (script_args)**- Fill this if you want to send arguments to the script. For more than one argument you must separate them by white spaces.
 
-Configuration example:
+## How to use
 
-	Server: Clarive_server
-    Running a test?: true
-    File path: /opt/clarive/examples/casperTest.js
-    CasperJS arguments: 
-    Script arguments: arg1 arg2
+### In Clarive EE
+
+Once the plugin is placed in its folder, you can find this service in the palette in the section of generic service and can be used like any other palette op.
+
+Op Name: **Run CasperJS Code**
+
+Example:
+
+```yaml
+	Server: CasperJS server
+	Running a test?: true
+	File path: /full/path/to/casperTest.js
+	CasperJS arguments: 
+	Script arguments: arg1 arg2
+``` 
+
+### In Clarive SE
+
+#### Rulebook
+
+If you want to use the plugin through the Rulebook, in any `do` block, use this ops as examples to configure the different parameters:
+
+```yaml
+rule: CasperJS demo
+do:
+   - casper_script:
+       server: casperjs_server   		# Required. Use the mid set to the resource you created
+       file_path: '/full/path/to/casperTest.js'	# Required
+       is_test: "0"    				# Required
+       script_args: ['arg1', 'arg2']
+```
+
+##### Outputs
+
+###### Success
 
 The service will return the console output for the command.
 
-## Variables:
+###### Possible configuration failures
 
-In order to use some comboboxes or texfields options from some services, you will need to use variables created in the Variable Resource from Clarive so you can use them more time on an easier way than repeating it every time.
+**Task failed**
 
-There are different Variables types (value, CI, textArea, array, etc), all of the in the Resource Variable. The CI type is usefull for the ciComboBoxes, as you will not be able to manually write them into the combobox, but yes in the texfields.
-
-The CI variable should be created with the following parameters:
-
-- **Type -** CI.
-- **CI Role -** Select the Role of the CI class you have in the comboBox. 
-- **CI CLASS -** Select the specific CI Class it will use, usually the same class as the comboBox where you want to make it appear.
-
-## Common errors
-
-Here we will explain some errors that you can have and how to try to fix them.
-
-If you get the message "Generic server CI doesn't exist".
+If you get the message "Generic server Resource doesn't exist".
 Choose a server which has all the requiriments specified so the command can be executed.
 
 If you get an error message when launching the service, maybe your code or aguments are wrong, or check if you are executing a code for test or not,
  so you will need to check or uncheck the *Running a test?* box.
 
 Also check your File path is correct so the program system can find it.
+
+**Variable required**
+
+```yaml
+Error in rulebook (compile): Required argument(s) missing for op "casper_script": "file_path"
+```
+
+Make sure you have all required variables defined.
+
+**Not allowed variable**
+
+```yaml
+Error in rulebook (compile): Argument `Command` not available for op "casper_script"
+```
+
+Make sure you are using the correct paramaters (make sure you are writing the variable names correctly).
+
+## More questions?
+
+Feel free to join **[Clarive Community](https://community.clarive.com/)** to resolve any of your doubts.

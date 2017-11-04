@@ -4,6 +4,20 @@ reg.register('service.casperjs.script', {
     name: _('Run CasperJS Code'),
     icon: '/plugin/cla-casperjs-plugin/icon/casperjs.svg',
     form: '/plugin/cla-casperjs-plugin/form/casperjs-form.js',
+    rulebook: {
+        moniker: 'casper_script',
+        description: _('Launch CarperJS scripts'),
+        required: [ 'server', 'file_path', 'is_test'],
+        allow: ['server', 'file_path', 'is_test', 'script_args', 'casper_args'],
+        examples: [{
+            casper_script: {
+                server: 'casper_server',
+                file_path: '/scripts/script.js',
+                is_test: '1',
+                script_args: ['arg1', 'arg2']
+            }
+        }]
+    },
     handler: function(ctx, config) {
 
         var log = require('cla/log');

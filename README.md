@@ -35,7 +35,8 @@ directory in Clarive's instance.
 
 The various parameters are:
 
-- **Server (variable name: server)**- This option let you choose the server where you want to execute the code. 
+- **Server (parameter name: server)**- This option let you choose the server where you want to execute the code. 
+- **User (user)**- User which will be used to connect to the server.
 - **Running a test? (is_test)**- Check this option if you are running a CasperJS test.
 - **File path (file_path)**- Write the path where the script file is located. It must be the full path to the file.
 - **CasperJS arguments (casper_args)**- Fill this if you want to send arguments to CasperJS. For more than one argument you must separate them by white spaces.
@@ -68,11 +69,13 @@ If you want to use the plugin through the Rulebook, in any `do` block, use this 
 ```yaml
 rule: CasperJS demo
 do:
-   - casper_script:
+   - myvar = casper_script:
        server: casperjs_server   		# Required. Use the mid set to the resource you created
+       user: 'casper_user'
        file_path: '/full/path/to/casperTest.js'	# Required
        is_test: "0"    				# Required
        script_args: ['arg1', 'arg2']
+   - echo: ${myvar}
 ```
 
 ##### Outputs
@@ -93,13 +96,13 @@ If you get an error message when launching the service, maybe your code or agume
 
 Also check your File path is correct so the program system can find it.
 
-**Variable required**
+**Parameter required**
 
 ```yaml
 Error in rulebook (compile): Required argument(s) missing for op "casper_script": "file_path"
 ```
 
-Make sure you have all required variables defined.
+Make sure you have all required parameters defined.
 
 **Not allowed variable**
 
@@ -107,7 +110,7 @@ Make sure you have all required variables defined.
 Error in rulebook (compile): Argument `Command` not available for op "casper_script"
 ```
 
-Make sure you are using the correct paramaters (make sure you are writing the variable names correctly).
+Make sure you are using the correct paramaters (make sure you are writing the parameters names correctly).
 
 ## More questions?
 

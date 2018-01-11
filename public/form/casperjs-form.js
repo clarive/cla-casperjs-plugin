@@ -9,6 +9,13 @@
         with_vars: 1
     });
 
+    var userTextField = Cla.ui.textField({
+        name: 'user',
+        fieldLabel: _('User'),
+        value: params.data.user || '',
+        allowBlank: true
+    });
+
     var testCheckBox = Cla.ui.checkBox({
         name: 'is_test',
         fieldLabel: _('Running a test?'),
@@ -36,11 +43,26 @@
         default_value: '.'
     });
 
+    var errorBox = Cla.ui.errorManagementBox({
+        errorTypeName: 'errors',
+        errorTypeValue: params.data.errors || 'fail',
+        rcOkName: 'rcOk',
+        rcOkValue: params.data.rcOk,
+        rcWarnName: 'rcWarn',
+        rcWarnValue: params.data.rcWarn,
+        rcErrorName: 'rcError',
+        rcErrorValue: params.data.rcError,
+        errorTabsValue: params.data
+    })
+
+
     return [
         serverCombo,
+        userTextField,
         testCheckBox,
         pathTextField,
         caperArgsTextField,
-        scriptArgsTextField
+        scriptArgsTextField,
+        errorBox
     ]
 })
